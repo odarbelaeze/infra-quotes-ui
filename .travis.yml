@@ -1,0 +1,20 @@
+sudo: required
+
+services:
+    - docker
+
+script:
+    - docker build -t odarbelaeze/quotes-ui:$TRAVIS_COMMIT .
+    - docker images
+
+deploy:
+    provider: script
+    script: bash ci/docker_push.sh
+    on:
+      branch: master
+      repo: odarbelaeze/infra-quotes-ui
+
+env:
+    global:
+        - secure: F9SnPCUfYJmP/1I9iQcPNU/jmhW/hlmRm+64yIn+Sjiv5CKGy9LNZn2lvG1GBIhfGsepRqPvtXmOg26SWPs+oBvVn9U37kVzbI0FXNNZLFqvVmjbWaxnDsLIcI/LOo3HGQ2Aw/wkvQwbraNd56QqVee/k7iob5Qoki49GcVJHqS+RezGqYX90A9MOWnrAZ+EOGN+33ePXS7XuSpMrvJOwzIbQqv3Dsn2RZhR94HcG2q75gpTZUpbcN+GRbOyo5LtUfe/Tn+qrFECXzBvt+eXrcC1UMmS///dhB0m8BMhmk/DGZXIFY6jKQXwwb/bkMm5RkOFKuXTJdHbxaDAYBw9oTMkeIYI8SMCYORVntaip5fLiNiB3Yjv+XjcpSEFV9pDnI5kRcFfonZjqDwUm9Q4Wz0RWmxFAI9nRuYMr+X4LaCJwbMSb+Vpcc0m/HbbgbNVA8a/LFYq3koMB4fiv+qW8HG5FiSmaObmV9/NRvxRbjKkB167i57tQ7K8Vz6VeLxMgPci2nQxmQKSfaNXHAfWO6bhif2qNnQkFucOOQa63nff53Z2OGLHMmWLqt/YLkDbNMS9/DmZIeIshaDLvEZGRtWWW/F2BEqGVFQ+lBzg9bPZgxhWDMYkaA3M+np2W8mX3apjdkI7+7AJxdGUpMVJYf/8z5SUZ+v9wJM9bUu0By4=
+        - secure: yfR2VSLTTJUcFGH8BkWk6ZFRVlHx1EJfqCswLz37/2nHI5m8on6fxFAtgcfblQNTNS4cgWBjvRXr1erjfEYCYS2RoMtUCWaXWm6zPWUN5TGY4yiMBWJC3nv6vmxOF/ZPKWyifBioON4Bm3CY1uJ0fNuSTznbMMuocpejZ0iKWTyXFNd8f1CwoNNxR6p9Xdb7oX1z5vjNpkNA2vBeuLdNhlP9uROefmIoo1+inpxqfEfRORxKY7EUINgM8lPRZMYXDq4XBhbmNdJV8RDTLvmZ53BQPDfoto3yE2CIgXd5DD/P8DUgSacAUmNupM0GqO+G4yRTqp7XcbJrBUwA9gErx6oUFxyd8pc06/vJ5oPpsugwbOfcjYGhJgrp+ImbVLPkwS3NY563FULp4ArlJTztgVxFqL+yyGCZ0mOhnqFAMw+7nGvOAO6o1UBDsuWW9P8XsD5CUuaD8PnLCpKXqFdGhgQKD1lmFcVgifIF+gpmQTZB06xFLi3JMHpc8ScdIxnZdjVMgd/RFNLw9Wcu6BkNm+OWRSG8EWbE5DjuAHBW4geqaKrwJmREoS6w8XQx0MhKYo+Pf651BQgU760V+nELsWQHcnDu7W6KbVqE1YBcqkCq2heg/QiB0r4SbKGTVatJb9WeN9E4cEtWDrT9nWHm3p8oCsJpe/rM7dt3DJ2FJ7E=
