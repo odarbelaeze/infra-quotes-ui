@@ -14,6 +14,12 @@ deploy:
       branch: master
       repo: odarbelaeze/infra-quotes-ui
 
+after_deploy:
+    script: bash ci/ship-it.sh
+    on:
+      branch: master
+      repo: odarbelaeze/infra-quotes-ui
+
 env:
     global:
         - secure: F9SnPCUfYJmP/1I9iQcPNU/jmhW/hlmRm+64yIn+Sjiv5CKGy9LNZn2lvG1GBIhfGsepRqPvtXmOg26SWPs+oBvVn9U37kVzbI0FXNNZLFqvVmjbWaxnDsLIcI/LOo3HGQ2Aw/wkvQwbraNd56QqVee/k7iob5Qoki49GcVJHqS+RezGqYX90A9MOWnrAZ+EOGN+33ePXS7XuSpMrvJOwzIbQqv3Dsn2RZhR94HcG2q75gpTZUpbcN+GRbOyo5LtUfe/Tn+qrFECXzBvt+eXrcC1UMmS///dhB0m8BMhmk/DGZXIFY6jKQXwwb/bkMm5RkOFKuXTJdHbxaDAYBw9oTMkeIYI8SMCYORVntaip5fLiNiB3Yjv+XjcpSEFV9pDnI5kRcFfonZjqDwUm9Q4Wz0RWmxFAI9nRuYMr+X4LaCJwbMSb+Vpcc0m/HbbgbNVA8a/LFYq3koMB4fiv+qW8HG5FiSmaObmV9/NRvxRbjKkB167i57tQ7K8Vz6VeLxMgPci2nQxmQKSfaNXHAfWO6bhif2qNnQkFucOOQa63nff53Z2OGLHMmWLqt/YLkDbNMS9/DmZIeIshaDLvEZGRtWWW/F2BEqGVFQ+lBzg9bPZgxhWDMYkaA3M+np2W8mX3apjdkI7+7AJxdGUpMVJYf/8z5SUZ+v9wJM9bUu0By4=
