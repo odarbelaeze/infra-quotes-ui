@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: {
+      data: {
         quote: 'We are getting you a nice quote...',
         author: 'Your lovely app'
       }
@@ -21,7 +21,7 @@ class App extends Component {
     fetch('/api/quote/random').then(res => {
       if (res.ok) {
         res.json()
-          .then(quote => this.setState({quote}))
+          .then(quote => this.setState(quote))
           .catch(() => this.failedToGetQuote());
       } else {
         this.failedToGetQuote();
@@ -31,7 +31,7 @@ class App extends Component {
 
   failedToGetQuote() {
     this.setState({
-      quote: {
+      data: {
         quote: 'We failed to fetch your quote, Don\'t let that get to you',
         author: 'Your lovely app',
       }
@@ -43,10 +43,10 @@ class App extends Component {
       <div className="App">
         <div className="App-quote">
           <p className="App-quote-text">
-            {this.state.quote.quote}
+            {this.state.data.quote}
           </p>
           <p className="App-quote-author">
-            {this.state.quote.author}
+            {this.state.data.author}
           </p>
         </div>
         <button

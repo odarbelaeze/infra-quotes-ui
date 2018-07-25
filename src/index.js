@@ -7,10 +7,12 @@ import registerServiceWorker from './registerServiceWorker';
 const fetchMock = require('fetch-mock');
 
 if (process.env.NODE_ENV !== 'production') {
-    fetchMock.get('/api/quote/random', {
-    'quote': 'Some random quote',
-    'author': 'Me Li'
-    });
+  fetchMock.get('/api/quote/random', {
+    data: {
+      quote: 'Some random quote',
+      author: 'Me Li'
+    }
+  });
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
