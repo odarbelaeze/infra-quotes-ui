@@ -15,10 +15,7 @@ deploy:
       repo: odarbelaeze/infra-quotes-ui
 
 after_deploy:
-    script: bash ci/ship-it.sh
-    on:
-      branch: master
-      repo: odarbelaeze/infra-quotes-ui
+    - bash ci/ship-it.sh
 
 env:
     global:
